@@ -1,11 +1,15 @@
 {
     "name": "multisafepay/api",
     "description": "A PHP wrapper for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.",
+	"type": "library",
+	"keywords": ["multisafepay","php","multisafepay api","multisafeapy json"],
+    "homepage": "https://github.com/MultiSafepay/PHP",
     "license": "MIT",
     "authors": [
         {
             "name": "MultiSafepay",
-            "email": "developer@multisafepay.com"
+            "email": "developer@multisafepay.com",
+			"homepage": "https://www.multisafepay.com"
         }
     ],
     "minimum-stability": "stable",
@@ -14,4 +18,3 @@
     },
     "require": {}
 }
-
