@@ -2,7 +2,7 @@
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 $msp = new MultiSafepay_API_Client;
 $msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
-$msp->setApiUrl('http://devapi.multisafepay.com/v1/json/');
+$msp->setApiUrl('http://testapi.multisafepay.com/v1/json/');
 
 
 if (!isset($_POST['issuer'])) {

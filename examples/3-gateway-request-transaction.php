@@ -2,7 +2,7 @@
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 $msp = new MultiSafepay_API_Client;
 $msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
-$msp->setApiUrl('http://devapi.multisafepay.com/v1/json/');
+$msp->setApiUrl('http://testapi.multisafepay.com/v1/json/');
 
 //TODO add extra options to get gateway request like locale, country, currency and amount
 $query_string = 'country=NL&currency=USD&amount=1000&locale=nl-NL';

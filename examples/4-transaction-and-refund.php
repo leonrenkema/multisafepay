@@ -5,7 +5,7 @@ define('BASE_URL', ($_SERVER['SERVER_PORT'] == 443 ? 'https://' : 'http://') . $
 
 $msp = new MultiSafepay_API_Client;
 $msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
-$msp->setApiUrl('http://devapi.multisafepay.com/v1/json/');
+$msp->setApiUrl('http://testapi.multisafepay.com/v1/json/');
 
 
 if (isset($_GET['type'])) {
