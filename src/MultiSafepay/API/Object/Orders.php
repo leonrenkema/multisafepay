@@ -15,14 +15,14 @@ class MultiSafepay_API_Object_Orders extends MultiSafepay_API_Object_Core {
     
     public function get($id) {
         $result = parent::get('orders', $id);
-        $this->success = $result->succes;
+        $this->success = $result->success;
         $this->data = $result->data;
         return $this->data;
     }
 
     public function post($body, $endpoint = 'orders') {
         $result = parent::post(json_encode($body, JSON_PRETTY_PRINT), $endpoint);
-        $this->success = $result->succes;
+        $this->success = $result->success;
         $this->data = $result->data;
         return $this->data;
     }
