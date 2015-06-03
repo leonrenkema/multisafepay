@@ -5,7 +5,7 @@ class MultiSafepay_API_Object_Orders extends MultiSafepay_API_Object_Core {
     public $success;
     public $data;
     
-    public function patch($body, $endpoint) {
+    public function patch($body, $endpoint = '') {
         $result = parent::patch(json_encode($body), $endpoint);
         $this->success = $result->success;
         $this->data = $result->data;
