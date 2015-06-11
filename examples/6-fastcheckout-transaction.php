@@ -3,7 +3,7 @@
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 $msp = new MultiSafepay_API_Client;
 $msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
-$msp->setApiUrl('http://testapi.multisafepay.com/v1/json/');
+$msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 
 try {
     $order_id = time();
@@ -99,7 +99,9 @@ try {
                     array(
                         "standalone" => "true",
                         "name" => "BTW0",
-                        "rate" => "0.00",
+                        "rules" => array(
+                            array("rate" => "0.00")
+                        ),
                     )
                 )
             )

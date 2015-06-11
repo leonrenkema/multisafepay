@@ -3,7 +3,7 @@
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 $msp = new MultiSafepay_API_Client;
 $msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
-$msp->setApiUrl('http://testapi.multisafepay.com/v1/json/');
+$msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 
 try {
     $order_id = time();
@@ -33,10 +33,10 @@ try {
             "forwarded_ip" => "127.0.0.1",
             "first_name" => "Jan",
             "last_name" => "Modaal",
-            "address1" => "Vlierweg",
+            "address1" => "Kraanspoor",
             "address2" => "",
-            "house_number" => "12c",
-            "zip_code" => "1032 LG",
+            "house_number" => "39",
+            "zip_code" => "1033 SC",
             "city" => "Amsterdam",
             "state" => "",
             "country" => "NL",
@@ -49,6 +49,7 @@ try {
             "phone" => "0208500500",
             "referrer" => "http://google.nl",
             "user_agent" => "msp01",
+            "email" => "test@test.nl"
         ),
         "shopping_cart" => array(
             "items" => array(
@@ -76,7 +77,9 @@ try {
                     array(
                         "standalone" => "true",
                         "name" => "BTW0",
-                        "rate" => "0.00",
+                        "rules" => array(
+                            array("rate" => "0.00")
+                        ),
                     )
                 )
             )
@@ -89,9 +92,8 @@ try {
             "shop_root_url" => "http://www.demo.nl",
         )
     ));
-    
-    if($msp->orders->result->success)
-    {
+
+    if ($msp->orders->result->success) {
         echo 'Your transaction is completed';
     }
 } catch (MultiSafepay_API_Exception $e) {
