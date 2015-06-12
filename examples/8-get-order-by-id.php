@@ -2,7 +2,7 @@
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 
 $msp = new MultiSafepay_API_Client;
-$msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
+$msp->setApiKey("4c4054d481b82b79bf21f141ec49a982759b20bb");
 $msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 
 ?>
@@ -11,10 +11,10 @@ $msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://a
 
 <?php
 
-$transactionid = '1413875026';
+$transactionid = '1434089539';
 
 //get the order
-$order = $msp->orders->get($transactionid);
+$order = $msp->orders->get($endpoint = 'transactions', $transactionid, $body=array(), $query_string = false);
 
 echo '<pre>';
 print_r($order);

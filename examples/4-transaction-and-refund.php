@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 define('BASE_URL', ($_SERVER['SERVER_PORT'] == 443 ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['SCRIPT_NAME']) . "/");
 
 $msp = new MultiSafepay_API_Client;
-$msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
+$msp->setApiKey("4c4054d481b82b79bf21f141ec49a982759b20bb");
 $msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 
 
@@ -16,9 +16,12 @@ if (isset($_GET['type'])) {
     $transactionid = $_GET['transactionid'];
 
     //get the order status
-    $order = $msp->orders->get($transactionid);
+   
+    
+    $order = $msp->orders->get($type = 'orders', $transactionid, $body = array(), $query_string = false);
 
-    if ($order->ewallet->status == "completed") {
+
+    if ($order->status == "completed") {
         //the transaction status was competed, now we will refund the transaction
         $endpoint = 'orders/' . $transactionid . '/refunds';
         try {

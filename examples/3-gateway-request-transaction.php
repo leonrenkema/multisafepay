@@ -1,11 +1,13 @@
 <?php
 require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 $msp = new MultiSafepay_API_Client;
-$msp->setApiKey("10324b12f0386ab3d9fc4090fcc9545e4f424a80");
+$msp->setApiKey("4c4054d481b82b79bf21f141ec49a982759b20bb");
 $msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 //TODO add extra options to get gateway request like locale, country, currency and amount
 $query_string = 'country=NL&currency=USD&amount=1000&locale=nl-NL';
-$gateways = $msp->gateways->get(array(), $query_string);
+
+
+$gateways = $msp->gateways->get($endpoint= 'gateways', $type= '', array(), $query_string);
 
 
 //Create an example gateway selection for forms
