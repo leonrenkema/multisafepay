@@ -1,5 +1,8 @@
 <?php
-class MultiSafepay_API_Object_Transactions extends MultiSafepay_API_Object_Core{
+
+namespace MultiSafePay\API\Object;
+
+class Transactions extends Core{
     
     public $success;
     public $data;

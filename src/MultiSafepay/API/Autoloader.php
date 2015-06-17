@@ -1,12 +1,13 @@
 <?php
 
-class Multisafepay_API_Autoloader {
+namespace MultiSafePay\API;
+
+class Autoloader {
 
     public static function autoload($class_name) {
 
-
-        if (strpos($class_name, "MultiSafepay_") === 0) {
-            $file_name = str_replace("_", "/", $class_name);
+        if (strpos($class_name, "MultiSafePay\\") === 0) {
+            $file_name = str_replace("\\", "/", $class_name);
             $file_name = realpath(dirname(__FILE__) . "/../../{$file_name}.php");
 
             if (file_exists($file_name)) {
@@ -26,4 +27,4 @@ class Multisafepay_API_Autoloader {
     }
 }
 
-MultiSafepay_API_Autoloader::register();
+Autoloader::register();

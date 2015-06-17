@@ -1,4 +1,7 @@
 <?php
-class MultiSafepay_API_Exception extends Exception
+
+namespace MultiSafePay\API;
+
+class Exception extends \Exception
 {
 }

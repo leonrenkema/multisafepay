@@ -1,12 +1,17 @@
 <?php
 
-class MultiSafepay_API_Object_Core {
+namespace MultiSafePay\API\Object;
+
+use MultiSafePay\API\Client;
+use MultiSafePay\API\Exception;
+
+class Core {
     
     protected $mspapi;
     public $result;
 
 
-    public function __construct(MultiSafepay_API_Client $mspapi) {
+    public function __construct(Client $mspapi) {
         $this->mspapi = $mspapi;
     }
 
@@ -40,12 +45,11 @@ class MultiSafepay_API_Object_Core {
     protected function performMspCall($http_method, $api_method, $http_body = NULL) {
         $body = $this->mspapi->performApiCall($http_method, $api_method, $http_body);
         if (!($object = @json_decode($body))) {
-            throw new MultiSafepay_API_Exception("'{$body}'.");
+            throw new Exception("'{$body}'.");
         }
 
         if (!empty($object->error_code)) {
-            $exception = new MultiSafepay_API_Exception("{$object->error_code}: {$object->error_info}.");
-            throw $exception;
+            throw new Exception("{$object->error_code}: {$object->error_info}.");
         }
         return $object;
     }
