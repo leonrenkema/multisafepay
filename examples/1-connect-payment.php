@@ -5,7 +5,7 @@ require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
 use MultiSafePay\API\Client;
 use MultiSafePay\API\Exception;
 
-$msp = new Client;
+$msp = new Client();
 $msp->setApiKey("4c4054d481b82b79bf21f141ec49a982759b20bb");
 $msp->setApiUrl('https://testapi.multisafepay.com/v1/json/'); //set to https://api.multisafepay.com/v1/json/ for live transactions using your live account API key
 try {
