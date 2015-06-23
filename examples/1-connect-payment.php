@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . "/../src/MultiSafepay/API/Autoloader.php";
+require_once dirname(__FILE__) . "/../vendor/autoload.php";
 
 use MultiSafePay\API\Client;
 use MultiSafePay\API\Exception;
